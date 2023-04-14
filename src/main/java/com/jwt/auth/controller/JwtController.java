@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jwt.auth.entities.JwtAuthEntity;
 import com.jwt.auth.entities.JwtToken;
-import com.jwt.auth.entities.User;
 import com.jwt.auth.services.CustomUserDetailsService;
 import com.jwt.auth.util.JwtUtil;
 
@@ -28,7 +28,7 @@ public class JwtController {
 	private AuthenticationManager authenticationManager;
 	
 	@PostMapping("/token")
-	public ResponseEntity<?> generateToken(@RequestBody User user) throws Exception{
+	public ResponseEntity<?> generateToken(@RequestBody JwtAuthEntity user) throws Exception{
 		System.out.println(user);
 		try {
 			this.authenticationManager
